@@ -230,9 +230,14 @@ class SessionActivity : ComponentActivity() {
         // isRealtime 모드일 때만 피드백 메시지 표시
         if (!isRealtime) return
 
+        val probStr = arrayOf("Prol", "Bloc", "SRep", "WRep", "Intj")
+            .zip(result.probabilities.toList())
+            .joinToString("  ") { (label, prob) -> "$label=${"%.2f".format(prob)}" }
+
+
         if (result.stutterDetected) {
             val label = result.dominantStutterType ?: "Disfluency"
-            showFeedback("⚠ $label detected. Take a breath.", isPositive = false)
+            showFeedback("⚠ $label detected. Take a breath.\n$probStr", isPositive = false)
         } else {
             showFeedback("✓ Good fluency! Keep going.", isPositive = true)
         }

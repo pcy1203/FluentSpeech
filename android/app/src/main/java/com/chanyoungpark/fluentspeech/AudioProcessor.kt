@@ -53,10 +53,16 @@ class AudioProcessor(
             "Prolongation", "Block", "Sound Repetition",
             "Word Repetition", "Interjection"
         )
-        private const val STUTTER_THRESHOLD = 0.5f
+        private val STUTTER_THRESHOLDS = mapOf(
+            "Prolongation"     to 0.75f,
+            "Block"            to 0.65f,
+            "Sound Repetition" to 1.10f,
+            "Word Repetition"  to 0.999f,
+            "Interjection"     to 0.65f
+        )
     }
 
-    // ── 내부 상태 ──────────────────────────────────────────────────
+    // ── 내부 상태 ─────────────────────────────────────────────R─────
     private var audioRecord: AudioRecord? = null
     private var interpreter: InterpreterApi? = null
     private var isRecording = false
@@ -198,6 +204,10 @@ class AudioProcessor(
     private fun runInference(samples: FloatArray) {
         val interpreter = interpreter ?: return
 
+        // 무음 구간 스킵 (RMS 에너지 기준)
+        val rms = sqrt(samples.map { it * it }.average()).toFloat()
+        if (rms < 0.01f) return   // 무음이면 추론 안 함
+
         // MFCC 추출
         val mfcc = extractMFCC(samples) ?: return   // (MAX_FRAMES, N_MFCC)
 
@@ -221,13 +231,31 @@ class AudioProcessor(
         val probs = FloatArray(5) { sigmoid(outputBuffer[0][it]) }
 
         // 결과 분석
-        val stutterDetected = probs.any { it > STUTTER_THRESHOLD }
-        val dominantIdx     = probs.indices.maxByOrNull { probs[it] }
-        val dominantType    = if (stutterDetected && dominantIdx != null)
-            STUTTER_LABELS[dominantIdx] else null
+        val detectedTypes = STUTTER_LABELS.filterIndexed { i, label ->
+            probs[i] > (STUTTER_THRESHOLDS[label] ?: 0.65f)
+        }
+        val stutterDetected = detectedTypes.isNotEmpty()
+        val dominantType = detectedTypes.maxByOrNull { label ->
+            probs[STUTTER_LABELS.indexOf(label)]
+        }
 
         // Voice tension: 최대 확률 기반 0~100 스케일
-        val voiceTension = (probs.max() * 100).toInt().coerceIn(0, 100)
+        // val voiceTension = (probs.max() * 100).toInt().coerceIn(0, 100)
+
+        // val filteredProbs = probs.filterIndexed { i, _ -> STUTTER_LABELS[i] != "Sound Repetition" }
+        // val voiceTension = (filteredProbs.max() * 100).toInt().coerceIn(0, 100)
+
+        val activeLabels = listOf("Prolongation", "Block", "Interjection")
+        val voiceTension = activeLabels.mapIndexed { _, label ->
+            val idx       = STUTTER_LABELS.indexOf(label)
+            val prob      = probs[idx]
+            val threshold = STUTTER_THRESHOLDS[label] ?: 0.65f
+            // threshold 대비 얼마나 초과했는지 (0~1 범위로 정규화)
+            (prob / threshold).coerceIn(0f, 1f)
+        }.max()
+            .let { (it * 100).toInt() }
+            .coerceIn(0, 100)
+
 
         // ── 누적 저장 ──
         voiceTensionHistory.add(voiceTension)
