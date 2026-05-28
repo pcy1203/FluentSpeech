@@ -1,10 +1,12 @@
 package com.chanyoungpark.fluentspeech
 
 import android.Manifest
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.util.Log
 import android.view.View
 import android.view.animation.AlphaAnimation
 import android.widget.Button
@@ -41,6 +43,9 @@ class SessionActivity : ComponentActivity() {
 
     // ── AudioProcessor ────────────────────────────────────────────
     private lateinit var audioProcessor: AudioProcessor
+
+    // ── CameraProcessor ───────────────────────────────────────────
+    private var cameraProcessor: CameraProcessor? = null
 
     // ── 권한 요청 런처 ─────────────────────────────────────────────
     private val permissionLauncher = registerForActivityResult(
@@ -105,15 +110,19 @@ class SessionActivity : ComponentActivity() {
     private fun setupUI() {
         // 카메라 모드 여부에 따라 visibility 설정
         if (useCamera) {
-            cameraContainer.visibility  = View.VISIBLE
+            cameraContainer.visibility   = View.VISIBLE
             layoutFaceTension.visibility = View.VISIBLE
         } else {
-            cameraContainer.visibility  = View.GONE
+            cameraContainer.visibility   = View.GONE
             layoutFaceTension.visibility = View.GONE
         }
 
-        // 피드백 카드 초기 숨김
-        cardFeedback.alpha = 0f
+        // Report Only 모드: 피드백 카드 완전 숨김
+        if (!isRealtime) {
+            cardFeedback.visibility = View.GONE
+        } else {
+            cardFeedback.alpha = 0f
+        }
 
         btnSession.setOnClickListener {
             if (isRunning) stopSession() else checkPermissionsAndStart()
@@ -154,14 +163,28 @@ class SessionActivity : ComponentActivity() {
 
     // ── Session Control ───────────────────────────────────────────
     private fun startSession() {
-        isRunning      = true
-        elapsedSeconds = 0
+        isRunning       = true
+        elapsedSeconds  = 0
         btnSession.text = "END"
 
+        audioProcessor.resetStats()
         timerHandler.post(timerRunnable)
         audioProcessor.start()
 
-        showFeedback("Session started. Start speaking!", isPositive = true)
+        // 카메라 모드면 CameraProcessor 시작
+        if (useCamera) {
+            val previewView = findViewById<androidx.camera.view.PreviewView>(R.id.camera_preview)
+            cameraProcessor = CameraProcessor(
+                context         = this,
+                lifecycleOwner  = this,
+                previewView     = previewView,
+                onTensionUpdate = { tension -> updateFaceTension(tension) },
+                onError         = { err -> Log.e("SessionActivity", err) }
+            )
+            cameraProcessor?.start()
+        }
+
+        if (isRealtime) showFeedback("Session started. Start speaking!", isPositive = true)
     }
 
     private fun stopSession() {
@@ -170,15 +193,31 @@ class SessionActivity : ComponentActivity() {
 
         timerHandler.removeCallbacks(timerRunnable)
         audioProcessor.stop()
+        cameraProcessor?.stop()
+        cameraProcessor = null
 
-        showFeedback("Session ended.", isPositive = true)
+        // 요약 데이터 수집
+        val summary        = audioProcessor.getSummary(elapsedSeconds)
+        val tensionHistory = audioProcessor.getTensionHistory()
 
-        // TODO: ReportActivity 로 이동
-        // val intent = Intent(this, ReportActivity::class.java).apply {
-        //     putExtra("DURATION_SEC", elapsedSeconds)
-        //     putExtra("RESULT_JSON", audioProcessor.getResultJson())
-        // }
-        // startActivity(intent)
+        // counts → JSON 문자열
+        val countsJson = org.json.JSONObject().apply {
+            summary.stutterCounts.forEach { (k, v) -> put(k, v) }
+        }.toString()
+
+        // tensionHistory → JSON 문자열
+        val historyJson = org.json.JSONArray().apply {
+            tensionHistory.forEach { put(it) }
+        }.toString()
+
+        val intent = Intent(this, ReportActivity::class.java).apply {
+            putExtra("DURATION_SEC",    elapsedSeconds)
+            putExtra("AVG_TENSION",     summary.avgVoiceTension)
+            putExtra("PEAK_TENSION",    summary.peakVoiceTension)
+            putExtra("STUTTER_COUNTS",  countsJson)
+            putExtra("TENSION_HISTORY", historyJson)
+        }
+        startActivity(intent)
     }
 
     // ── Inference Result Handler ──────────────────────────────────
@@ -240,5 +279,6 @@ class SessionActivity : ComponentActivity() {
         super.onDestroy()
         timerHandler.removeCallbacksAndMessages(null)
         if (::audioProcessor.isInitialized) audioProcessor.stop()
+        cameraProcessor?.stop()
     }
 }

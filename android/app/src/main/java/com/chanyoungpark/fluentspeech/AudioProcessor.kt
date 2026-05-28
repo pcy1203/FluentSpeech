@@ -61,10 +61,42 @@ class AudioProcessor(
     private var interpreter: InterpreterApi? = null
     private var isRecording = false
 
-    private val audioBuffer  = ShortArray(WINDOW_SAMPLES)
+    private val audioBuffer   = ShortArray(WINDOW_SAMPLES)
     private val slidingBuffer = FloatArray(WINDOW_SAMPLES)
     private var slidingWritePos = 0
     private var bufferedSamples = 0
+
+    // ── 누적 결과 ──────────────────────────────────────────────────
+    private val stutterCounts = mutableMapOf(
+        "Prolongation"     to 0,
+        "Block"            to 0,
+        "Sound Repetition" to 0,
+        "Word Repetition"  to 0,
+        "Interjection"     to 0
+    )
+    private val voiceTensionHistory = mutableListOf<Int>()  // 시간순 tension 값
+
+    // ── 누적 결과 초기화 ───────────────────────────────────────────
+    fun resetStats() {
+        stutterCounts.keys.forEach { stutterCounts[it] = 0 }
+        voiceTensionHistory.clear()
+    }
+
+    // ── 세션 요약 반환 ─────────────────────────────────────────────
+    fun getSummary(durationSec: Int): SessionSummary {
+        val avg  = if (voiceTensionHistory.isEmpty()) 0
+        else voiceTensionHistory.average().toInt()
+        val peak = voiceTensionHistory.maxOrNull() ?: 0
+        return SessionSummary(
+            durationSec      = durationSec,
+            stutterCounts    = stutterCounts.toMap(),
+            avgVoiceTension  = avg,
+            peakVoiceTension = peak
+        )
+    }
+
+    // tension 히스토리 반환 (그래프용)
+    fun getTensionHistory(): List<Int> = voiceTensionHistory.toList()
 
     // ── 초기화 ─────────────────────────────────────────────────────
     init {
@@ -109,18 +141,13 @@ class AudioProcessor(
             AudioFormat.ENCODING_PCM_16BIT
         )
 
-        try {
-            audioRecord = AudioRecord(
-                MediaRecorder.AudioSource.MIC,
-                SAMPLE_RATE,
-                AudioFormat.CHANNEL_IN_MONO,
-                AudioFormat.ENCODING_PCM_16BIT,
-                maxOf(minBuf, HOP_SAMPLES * 2)
-            )
-        } catch (e: SecurityException) {
-            onError("Microphone permission denied: ${e.message}")
-            return
-        }
+        audioRecord = AudioRecord(
+            MediaRecorder.AudioSource.MIC,
+            SAMPLE_RATE,
+            AudioFormat.CHANNEL_IN_MONO,
+            AudioFormat.ENCODING_PCM_16BIT,
+            maxOf(minBuf, HOP_SAMPLES * 2)
+        )
 
         isRecording = true
         audioRecord?.startRecording()
@@ -201,6 +228,12 @@ class AudioProcessor(
 
         // Voice tension: 최대 확률 기반 0~100 스케일
         val voiceTension = (probs.max() * 100).toInt().coerceIn(0, 100)
+
+        // ── 누적 저장 ──
+        voiceTensionHistory.add(voiceTension)
+        if (stutterDetected && dominantType != null) {
+            stutterCounts[dominantType] = (stutterCounts[dominantType] ?: 0) + 1
+        }
 
         onResult(InferenceResult(stutterDetected, dominantType, probs, voiceTension))
     }
@@ -337,7 +370,4 @@ class AudioProcessor(
     }
 
     private fun sigmoid(x: Float) = 1f / (1f + kotlin.math.exp(-x))
-
-    // ── 결과 JSON (Report용) ─────────────────────────────────────
-    fun getResultJson(): String = "{}"  // TODO: 누적 결과 직렬화
 }
