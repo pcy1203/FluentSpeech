@@ -1,0 +1,2008 @@
+{
+  "schema_version": 1,
+  "summary": {
+    "total_onnx_node_outputs": 85,
+    "direct_count": 69,
+    "rewritten_count": 3,
+    "inferred_count": 2,
+    "missing_count": 11,
+    "rewritten_but_missing_count": 0,
+    "lineage_event_count": 22
+  },
+  "lineage_events": [
+    {
+      "kind": "replace_input",
+      "src_name": "wa/Transpose_output_0",
+      "dst_name": "input",
+      "event_index": 0
+    },
+    {
+      "kind": "prune_unused_tensors",
+      "removed_names": [
+        "input_onnx_ncx_internal",
+        "input_onnx_ncx_internal_perm",
+        "bn6.bias_quantized_scale",
+        "bn6.bias_quantized_zero_point",
+        "bn7.bias_quantized_scale",
+        "bn7.bias_quantized_zero_point",
+        "fc1.bias_quantized_scale",
+        "fc1.bias_quantized_zero_point",
+        "fc2.bias_quantized_scale",
+        "fc2.bias_quantized_zero_point",
+        "onnx::Conv_102_quantized_scale",
+        "onnx::Conv_102_quantized_zero_point",
+        "onnx::Conv_105_quantized_scale",
+        "onnx::Conv_105_quantized_zero_point",
+        "onnx::Conv_93_quantized_scale",
+        "onnx::Conv_93_quantized_zero_point",
+        "onnx::Conv_96_quantized_scale",
+        "onnx::Conv_96_quantized_zero_point",
+        "onnx::Conv_99_quantized_scale",
+        "onnx::Conv_99_quantized_zero_point",
+        "output.bias_quantized_scale",
+        "output.bias_quantized_zero_point",
+        "wa/Transpose_output_0_scale",
+        "wa/Transpose_output_0_zero_point",
+        "wa/tdnn1/Relu_output_0_scale",
+        "wa/tdnn1/Relu_output_0_zero_point",
+        "wa/tdnn2/Relu_output_0_scale",
+        "wa/tdnn2/Relu_output_0_zero_point",
+        "wa/tdnn3/Relu_output_0_scale",
+        "wa/tdnn3/Relu_output_0_zero_point",
+        "wa/tdnn4/Relu_output_0_scale",
+        "wa/tdnn4/Relu_output_0_zero_point",
+        "wa/tdnn5/Relu_output_0_scale",
+        "wa/tdnn5/Relu_output_0_zero_point",
+        "wa/ReduceMean_output_0_scale",
+        "wa/ReduceMean_output_0_zero_point",
+        "wa/Sub_output_0_scale",
+        "wa/Sub_output_0_zero_point",
+        "wa/Cast_output_0_scale",
+        "wa/Cast_output_0_zero_point",
+        "wa/Mul_output_0_scale",
+        "wa/Mul_output_0_zero_point",
+        "wa/ReduceMean_2_output_0_scale",
+        "wa/ReduceMean_2_output_0_zero_point",
+        "wa/Mul_1_output_0_scale",
+        "wa/Mul_1_output_0_zero_point",
+        "wa/Sqrt_output_0_scale",
+        "wa/Sqrt_output_0_zero_point",
+        "wa/Concat_output_0_scale",
+        "wa/Concat_output_0_zero_point",
+        "wa/fc1/Gemm_output_0_scale",
+        "wa/fc1/Gemm_output_0_zero_point",
+        "wa/Relu_output_0_scale",
+        "wa/Relu_output_0_zero_point",
+        "wa/fc2/Gemm_output_0_scale",
+        "wa/fc2/Gemm_output_0_zero_point",
+        "wa/Relu_1_output_0_scale",
+        "wa/Relu_1_output_0_zero_point",
+        "output_scale",
+        "output_zero_point",
+        "wa/Transpose_perm",
+        "wa/ReduceMean_axes",
+        "wa/ReduceMean_1_axes",
+        "wa/ReduceMean_2_axes",
+        "wa/Constant_output_0",
+        "wa/Transpose_output_0",
+        "wa/Transpose_output_0_perm",
+        "onnx____Conv_101_DequantizeLinear_Output",
+        "onnx____Conv_104_DequantizeLinear_Output",
+        "onnx____Conv_92_DequantizeLinear_Output",
+        "onnx____Conv_95_DequantizeLinear_Output",
+        "onnx____Conv_98_DequantizeLinear_Output",
+        "wa/tdnn1/conv/Conv_conv1d_filter_2d",
+        "wa/tdnn2/conv/Conv_conv1d_filter_2d",
+        "wa/tdnn3/conv/Conv_conv1d_filter_2d",
+        "wa/tdnn4/conv/Conv_conv1d_filter_2d",
+        "wa/tdnn5/conv/Conv_conv1d_filter_2d",
+        "wa/Gather_output_0_gather_indices_wrapped"
+      ],
+      "event_index": 1
+    },
+    {
+      "kind": "prune_unused_tensors",
+      "removed_names": [
+        "__nhwc_to_nchw_perm_rank4__"
+      ],
+      "event_index": 2
+    },
+    {
+      "kind": "prune_unused_tensors",
+      "removed_names": [
+        "__nhwc_to_nchw_perm_rank4__"
+      ],
+      "event_index": 3
+    },
+    {
+      "kind": "prune_unused_tensors",
+      "removed_names": [
+        "__nhwc_to_nchw_perm_rank4__"
+      ],
+      "event_index": 4
+    },
+    {
+      "kind": "prune_unused_tensors",
+      "removed_names": [
+        "__nhwc_to_nchw_perm_rank4__"
+      ],
+      "event_index": 5
+    },
+    {
+      "kind": "prune_unused_tensors",
+      "removed_names": [
+        "__nhwc_to_nchw_perm_rank4__"
+      ],
+      "event_index": 6
+    },
+    {
+      "kind": "prune_unused_tensors",
+      "removed_names": [
+        "__nhwc_to_nchw_perm_rank4__"
+      ],
+      "event_index": 7
+    },
+    {
+      "kind": "replace_input",
+      "src_name": "wa/ReduceMean_output_0_DequantizeLinear_Output",
+      "dst_name": "wa/ReduceMean_output_0",
+      "source": "set_operator_inputs",
+      "event_index": 8
+    },
+    {
+      "kind": "prune_unused_tensors",
+      "removed_names": [
+        "__nhwc_to_nchw_perm_rank4__"
+      ],
+      "event_index": 9
+    },
+    {
+      "kind": "prune_unused_tensors",
+      "removed_names": [
+        "__nhwc_to_nchw_perm_rank4__"
+      ],
+      "event_index": 10
+    },
+    {
+      "kind": "rename_tensor",
+      "old_name": "output_QuantizeLinear_Input",
+      "new_name": "output",
+      "event_index": 11
+    },
+    {
+      "kind": "prune_unused_tensors",
+      "removed_names": [
+        "output_QuantizeLinear_Output"
+      ],
+      "event_index": 12
+    },
+    {
+      "kind": "prune_unused_tensors",
+      "removed_names": [
+        "onnx::Conv_102_quantized",
+        "onnx::Conv_105_quantized",
+        "onnx::Conv_93_quantized",
+        "onnx::Conv_96_quantized",
+        "onnx::Conv_99_quantized",
+        "onnx____Conv_102",
+        "onnx____Conv_105",
+        "onnx____Conv_93",
+        "onnx____Conv_96",
+        "onnx____Conv_99",
+        "wa/ReduceMean_output_0_QuantizeLinear_Output",
+        "wa/ReduceMean_output_0_DequantizeLinear_Output"
+      ],
+      "event_index": 13
+    },
+    {
+      "kind": "prune_unused_tensors",
+      "removed_names": [
+        "__nhwc_to_nchw_perm_rank4__"
+      ],
+      "event_index": 14
+    },
+    {
+      "kind": "prune_unused_tensors",
+      "removed_names": [
+        "__nhwc_to_nchw_perm_rank4__"
+      ],
+      "event_index": 15
+    },
+    {
+      "kind": "prune_unused_tensors",
+      "removed_names": [
+        "__nhwc_to_nchw_perm_rank4__"
+      ],
+      "event_index": 16
+    },
+    {
+      "kind": "prune_unused_tensors",
+      "removed_names": [
+        "__nhwc_to_nchw_perm_rank4__"
+      ],
+      "event_index": 17
+    },
+    {
+      "kind": "prune_unused_tensors",
+      "removed_names": [
+        "__nhwc_to_nchw_perm_rank4__"
+      ],
+      "event_index": 18
+    },
+    {
+      "kind": "prune_unused_tensors",
+      "removed_names": [
+        "__nhwc_to_nchw_perm_rank4__"
+      ],
+      "event_index": 19
+    },
+    {
+      "kind": "prune_unused_tensors",
+      "removed_names": [
+        "__nhwc_to_nchw_perm_rank4__"
+      ],
+      "event_index": 20
+    },
+    {
+      "kind": "prune_unused_tensors",
+      "removed_names": [
+        "wa/tdnn1/conv/Conv_conv1d_expand_axis",
+        "wa/tdnn2/conv/Conv_conv1d_expand_axis",
+        "wa/tdnn3/conv/Conv_conv1d_expand_axis",
+        "wa/tdnn4/conv/Conv_conv1d_expand_axis",
+        "wa/tdnn5/conv/Conv_conv1d_expand_axis"
+      ],
+      "event_index": 21
+    }
+  ],
+  "records": [
+    {
+      "identifier": 1,
+      "onnx_op_type": "Constant",
+      "onnx_op_name": "wa/Constant",
+      "onnx_output_index": 0,
+      "onnx_output_name": "wa/Constant_output_0",
+      "resolved_tflite_tensor_name": "wa/Constant_output_0",
+      "exists_in_final_model": false,
+      "is_graph_output": false,
+      "consumer_count": 0,
+      "producer_operator_index": null,
+      "producer_op_type": null,
+      "assume_channel_last_layout": false,
+      "status": "missing",
+      "is_rewritten": false,
+      "rewrite_events": [],
+      "rewrite_name_chain": [
+        "wa/Constant_output_0"
+      ]
+    },
+    {
+      "identifier": 2,
+      "onnx_op_type": "Constant",
+      "onnx_op_name": "wa/Constant_1",
+      "onnx_output_index": 0,
+      "onnx_output_name": "wa/Constant_1_output_0",
+      "resolved_tflite_tensor_name": "wa/Constant_1_output_0",
+      "exists_in_final_model": true,
+      "is_graph_output": false,
+      "consumer_count": 1,
+      "producer_operator_index": null,
+      "producer_op_type": null,
+      "assume_channel_last_layout": false,
+      "status": "direct",
+      "is_rewritten": false,
+      "rewrite_events": [],
+      "rewrite_name_chain": [
+        "wa/Constant_1_output_0"
+      ]
+    },
+    {
+      "identifier": 3,
+      "onnx_op_type": "DequantizeLinear",
+      "onnx_op_name": "bn6.bias_DequantizeLinear",
+      "onnx_output_index": 0,
+      "onnx_output_name": "bn6.bias",
+      "resolved_tflite_tensor_name": "bn6.bias",
+      "exists_in_final_model": true,
+      "is_graph_output": false,
+      "consumer_count": 1,
+      "producer_operator_index": 0,
+      "producer_op_type": "DEQUANTIZE",
+      "assume_channel_last_layout": false,
+      "status": "direct",
+      "is_rewritten": false,
+      "rewrite_events": [],
+      "rewrite_name_chain": [
+        "bn6.bias"
+      ]
+    },
+    {
+      "identifier": 4,
+      "onnx_op_type": "Constant",
+      "onnx_op_name": "bn6.weight_DequantizeLinear",
+      "onnx_output_index": 0,
+      "onnx_output_name": "bn6.weight_DequantizeLinear_Output",
+      "resolved_tflite_tensor_name": "bn6.weight_DequantizeLinear_Output",
+      "exists_in_final_model": true,
+      "is_graph_output": false,
+      "consumer_count": 1,
+      "producer_operator_index": null,
+      "producer_op_type": null,
+      "assume_channel_last_layout": false,
+      "status": "direct",
+      "is_rewritten": false,
+      "rewrite_events": [],
+      "rewrite_name_chain": [
+        "bn6.weight_DequantizeLinear_Output"
+      ]
+    },
+    {
+      "identifier": 5,
+      "onnx_op_type": "DequantizeLinear",
+      "onnx_op_name": "bn7.bias_DequantizeLinear",
+      "onnx_output_index": 0,
+      "onnx_output_name": "bn7.bias",
+      "resolved_tflite_tensor_name": "bn7.bias",
+      "exists_in_final_model": true,
+      "is_graph_output": false,
+      "consumer_count": 1,
+      "producer_operator_index": 1,
+      "producer_op_type": "DEQUANTIZE",
+      "assume_channel_last_layout": false,
+      "status": "direct",
+      "is_rewritten": false,
+      "rewrite_events": [],
+      "rewrite_name_chain": [
+        "bn7.bias"
+      ]
+    },
+    {
+      "identifier": 6,
+      "onnx_op_type": "Constant",
+      "onnx_op_name": "bn7.weight_DequantizeLinear",
+      "onnx_output_index": 0,
+      "onnx_output_name": "bn7.weight_DequantizeLinear_Output",
+      "resolved_tflite_tensor_name": "bn7.weight_DequantizeLinear_Output",
+      "exists_in_final_model": true,
+      "is_graph_output": false,
+      "consumer_count": 1,
+      "producer_operator_index": null,
+      "producer_op_type": null,
+      "assume_channel_last_layout": false,
+      "status": "direct",
+      "is_rewritten": false,
+      "rewrite_events": [],
+      "rewrite_name_chain": [
+        "bn7.weight_DequantizeLinear_Output"
+      ]
+    },
+    {
+      "identifier": 7,
+      "onnx_op_type": "DequantizeLinear",
+      "onnx_op_name": "fc1.bias_DequantizeLinear",
+      "onnx_output_index": 0,
+      "onnx_output_name": "fc1.bias",
+      "resolved_tflite_tensor_name": "fc1.bias",
+      "exists_in_final_model": true,
+      "is_graph_output": false,
+      "consumer_count": 1,
+      "producer_operator_index": 2,
+      "producer_op_type": "DEQUANTIZE",
+      "assume_channel_last_layout": false,
+      "status": "direct",
+      "is_rewritten": false,
+      "rewrite_events": [],
+      "rewrite_name_chain": [
+        "fc1.bias"
+      ]
+    },
+    {
+      "identifier": 8,
+      "onnx_op_type": "Constant",
+      "onnx_op_name": "fc1.weight_DequantizeLinear",
+      "onnx_output_index": 0,
+      "onnx_output_name": "fc1.weight_DequantizeLinear_Output",
+      "resolved_tflite_tensor_name": "fc1.weight_DequantizeLinear_Output",
+      "exists_in_final_model": true,
+      "is_graph_output": false,
+      "consumer_count": 1,
+      "producer_operator_index": null,
+      "producer_op_type": null,
+      "assume_channel_last_layout": false,
+      "status": "direct",
+      "is_rewritten": false,
+      "rewrite_events": [],
+      "rewrite_name_chain": [
+        "fc1.weight_DequantizeLinear_Output"
+      ]
+    },
+    {
+      "identifier": 9,
+      "onnx_op_type": "DequantizeLinear",
+      "onnx_op_name": "fc2.bias_DequantizeLinear",
+      "onnx_output_index": 0,
+      "onnx_output_name": "fc2.bias",
+      "resolved_tflite_tensor_name": "fc2.bias",
+      "exists_in_final_model": true,
+      "is_graph_output": false,
+      "consumer_count": 1,
+      "producer_operator_index": 3,
+      "producer_op_type": "DEQUANTIZE",
+      "assume_channel_last_layout": false,
+      "status": "direct",
+      "is_rewritten": false,
+      "rewrite_events": [],
+      "rewrite_name_chain": [
+        "fc2.bias"
+      ]
+    },
+    {
+      "identifier": 10,
+      "onnx_op_type": "Constant",
+      "onnx_op_name": "fc2.weight_DequantizeLinear",
+      "onnx_output_index": 0,
+      "onnx_output_name": "fc2.weight_DequantizeLinear_Output",
+      "resolved_tflite_tensor_name": "fc2.weight_DequantizeLinear_Output",
+      "exists_in_final_model": true,
+      "is_graph_output": false,
+      "consumer_count": 1,
+      "producer_operator_index": null,
+      "producer_op_type": null,
+      "assume_channel_last_layout": false,
+      "status": "direct",
+      "is_rewritten": false,
+      "rewrite_events": [],
+      "rewrite_name_chain": [
+        "fc2.weight_DequantizeLinear_Output"
+      ]
+    },
+    {
+      "identifier": 11,
+      "onnx_op_type": "Transpose",
+      "onnx_op_name": "wa/Transpose",
+      "onnx_output_index": 0,
+      "onnx_output_name": "wa/Transpose_output_0",
+      "resolved_tflite_tensor_name": "input",
+      "exists_in_final_model": true,
+      "is_graph_output": false,
+      "consumer_count": 1,
+      "producer_operator_index": null,
+      "producer_op_type": null,
+      "assume_channel_last_layout": false,
+      "status": "rewritten",
+      "is_rewritten": true,
+      "rewrite_events": [
+        {
+          "event_index": 0,
+          "kind": "replace_input",
+          "from": "wa/Transpose_output_0",
+          "to": "input"
+        }
+      ],
+      "rewrite_name_chain": [
+        "wa/Transpose_output_0",
+        "input"
+      ]
+    },
+    {
+      "identifier": 12,
+      "onnx_op_type": "Constant",
+      "onnx_op_name": "onnx____Conv_101_DequantizeLinear",
+      "onnx_output_index": 0,
+      "onnx_output_name": "onnx____Conv_101_DequantizeLinear_Output",
+      "resolved_tflite_tensor_name": "onnx____Conv_101_DequantizeLinear_Output",
+      "exists_in_final_model": false,
+      "is_graph_output": false,
+      "consumer_count": 0,
+      "producer_operator_index": null,
+      "producer_op_type": null,
+      "assume_channel_last_layout": false,
+      "status": "missing",
+      "is_rewritten": false,
+      "rewrite_events": [],
+      "rewrite_name_chain": [
+        "onnx____Conv_101_DequantizeLinear_Output"
+      ]
+    },
+    {
+      "identifier": 13,
+      "onnx_op_type": "DequantizeLinear",
+      "onnx_op_name": "onnx____Conv_102_DequantizeLinear",
+      "onnx_output_index": 0,
+      "onnx_output_name": "onnx____Conv_102",
+      "resolved_tflite_tensor_name": "onnx____Conv_102",
+      "exists_in_final_model": false,
+      "is_graph_output": false,
+      "consumer_count": 0,
+      "producer_operator_index": null,
+      "producer_op_type": null,
+      "assume_channel_last_layout": false,
+      "status": "missing",
+      "is_rewritten": false,
+      "rewrite_events": [],
+      "rewrite_name_chain": [
+        "onnx____Conv_102"
+      ]
+    },
+    {
+      "identifier": 14,
+      "onnx_op_type": "Constant",
+      "onnx_op_name": "onnx____Conv_104_DequantizeLinear",
+      "onnx_output_index": 0,
+      "onnx_output_name": "onnx____Conv_104_DequantizeLinear_Output",
+      "resolved_tflite_tensor_name": "onnx____Conv_104_DequantizeLinear_Output",
+      "exists_in_final_model": false,
+      "is_graph_output": false,
+      "consumer_count": 0,
+      "producer_operator_index": null,
+      "producer_op_type": null,
+      "assume_channel_last_layout": false,
+      "status": "missing",
+      "is_rewritten": false,
+      "rewrite_events": [],
+      "rewrite_name_chain": [
+        "onnx____Conv_104_DequantizeLinear_Output"
+      ]
+    },
+    {
+      "identifier": 15,
+      "onnx_op_type": "DequantizeLinear",
+      "onnx_op_name": "onnx____Conv_105_DequantizeLinear",
+      "onnx_output_index": 0,
+      "onnx_output_name": "onnx____Conv_105",
+      "resolved_tflite_tensor_name": "onnx____Conv_105",
+      "exists_in_final_model": false,
+      "is_graph_output": false,
+      "consumer_count": 0,
+      "producer_operator_index": null,
+      "producer_op_type": null,
+      "assume_channel_last_layout": false,
+      "status": "missing",
+      "is_rewritten": false,
+      "rewrite_events": [],
+      "rewrite_name_chain": [
+        "onnx____Conv_105"
+      ]
+    },
+    {
+      "identifier": 16,
+      "onnx_op_type": "Constant",
+      "onnx_op_name": "onnx____Conv_92_DequantizeLinear",
+      "onnx_output_index": 0,
+      "onnx_output_name": "onnx____Conv_92_DequantizeLinear_Output",
+      "resolved_tflite_tensor_name": "onnx____Conv_92_DequantizeLinear_Output",
+      "exists_in_final_model": false,
+      "is_graph_output": false,
+      "consumer_count": 0,
+      "producer_operator_index": null,
+      "producer_op_type": null,
+      "assume_channel_last_layout": false,
+      "status": "missing",
+      "is_rewritten": false,
+      "rewrite_events": [],
+      "rewrite_name_chain": [
+        "onnx____Conv_92_DequantizeLinear_Output"
+      ]
+    },
+    {
+      "identifier": 17,
+      "onnx_op_type": "DequantizeLinear",
+      "onnx_op_name": "onnx____Conv_93_DequantizeLinear",
+      "onnx_output_index": 0,
+      "onnx_output_name": "onnx____Conv_93",
+      "resolved_tflite_tensor_name": "onnx____Conv_93",
+      "exists_in_final_model": false,
+      "is_graph_output": false,
+      "consumer_count": 0,
+      "producer_operator_index": null,
+      "producer_op_type": null,
+      "assume_channel_last_layout": false,
+      "status": "missing",
+      "is_rewritten": false,
+      "rewrite_events": [],
+      "rewrite_name_chain": [
+        "onnx____Conv_93"
+      ]
+    },
+    {
+      "identifier": 18,
+      "onnx_op_type": "Constant",
+      "onnx_op_name": "onnx____Conv_95_DequantizeLinear",
+      "onnx_output_index": 0,
+      "onnx_output_name": "onnx____Conv_95_DequantizeLinear_Output",
+      "resolved_tflite_tensor_name": "onnx____Conv_95_DequantizeLinear_Output",
+      "exists_in_final_model": false,
+      "is_graph_output": false,
+      "consumer_count": 0,
+      "producer_operator_index": null,
+      "producer_op_type": null,
+      "assume_channel_last_layout": false,
+      "status": "missing",
+      "is_rewritten": false,
+      "rewrite_events": [],
+      "rewrite_name_chain": [
+        "onnx____Conv_95_DequantizeLinear_Output"
+      ]
+    },
+    {
+      "identifier": 19,
+      "onnx_op_type": "DequantizeLinear",
+      "onnx_op_name": "onnx____Conv_96_DequantizeLinear",
+      "onnx_output_index": 0,
+      "onnx_output_name": "onnx____Conv_96",
+      "resolved_tflite_tensor_name": "onnx____Conv_96",
+      "exists_in_final_model": false,
+      "is_graph_output": false,
+      "consumer_count": 0,
+      "producer_operator_index": null,
+      "producer_op_type": null,
+      "assume_channel_last_layout": false,
+      "status": "missing",
+      "is_rewritten": false,
+      "rewrite_events": [],
+      "rewrite_name_chain": [
+        "onnx____Conv_96"
+      ]
+    },
+    {
+      "identifier": 20,
+      "onnx_op_type": "Constant",
+      "onnx_op_name": "onnx____Conv_98_DequantizeLinear",
+      "onnx_output_index": 0,
+      "onnx_output_name": "onnx____Conv_98_DequantizeLinear_Output",
+      "resolved_tflite_tensor_name": "onnx____Conv_98_DequantizeLinear_Output",
+      "exists_in_final_model": false,
+      "is_graph_output": false,
+      "consumer_count": 0,
+      "producer_operator_index": null,
+      "producer_op_type": null,
+      "assume_channel_last_layout": false,
+      "status": "missing",
+      "is_rewritten": false,
+      "rewrite_events": [],
+      "rewrite_name_chain": [
+        "onnx____Conv_98_DequantizeLinear_Output"
+      ]
+    },
+    {
+      "identifier": 21,
+      "onnx_op_type": "DequantizeLinear",
+      "onnx_op_name": "onnx____Conv_99_DequantizeLinear",
+      "onnx_output_index": 0,
+      "onnx_output_name": "onnx____Conv_99",
+      "resolved_tflite_tensor_name": "onnx____Conv_99",
+      "exists_in_final_model": false,
+      "is_graph_output": false,
+      "consumer_count": 0,
+      "producer_operator_index": null,
+      "producer_op_type": null,
+      "assume_channel_last_layout": false,
+      "status": "missing",
+      "is_rewritten": false,
+      "rewrite_events": [],
+      "rewrite_name_chain": [
+        "onnx____Conv_99"
+      ]
+    },
+    {
+      "identifier": 22,
+      "onnx_op_type": "DequantizeLinear",
+      "onnx_op_name": "output.bias_DequantizeLinear",
+      "onnx_output_index": 0,
+      "onnx_output_name": "output.bias",
+      "resolved_tflite_tensor_name": "output.bias",
+      "exists_in_final_model": true,
+      "is_graph_output": false,
+      "consumer_count": 1,
+      "producer_operator_index": 4,
+      "producer_op_type": "DEQUANTIZE",
+      "assume_channel_last_layout": false,
+      "status": "direct",
+      "is_rewritten": false,
+      "rewrite_events": [],
+      "rewrite_name_chain": [
+        "output.bias"
+      ]
+    },
+    {
+      "identifier": 23,
+      "onnx_op_type": "Constant",
+      "onnx_op_name": "output.weight_DequantizeLinear",
+      "onnx_output_index": 0,
+      "onnx_output_name": "output.weight_DequantizeLinear_Output",
+      "resolved_tflite_tensor_name": "output.weight_DequantizeLinear_Output",
+      "exists_in_final_model": true,
+      "is_graph_output": false,
+      "consumer_count": 1,
+      "producer_operator_index": null,
+      "producer_op_type": null,
+      "assume_channel_last_layout": false,
+      "status": "direct",
+      "is_rewritten": false,
+      "rewrite_events": [],
+      "rewrite_name_chain": [
+        "output.weight_DequantizeLinear_Output"
+      ]
+    },
+    {
+      "identifier": 24,
+      "onnx_op_type": "QuantizeLinear",
+      "onnx_op_name": "wa/Transpose_output_0_QuantizeLinear",
+      "onnx_output_index": 0,
+      "onnx_output_name": "wa/Transpose_output_0_QuantizeLinear_Output",
+      "resolved_tflite_tensor_name": "wa/Transpose_output_0_QuantizeLinear_Output",
+      "exists_in_final_model": true,
+      "is_graph_output": false,
+      "consumer_count": 1,
+      "producer_operator_index": 5,
+      "producer_op_type": "QUANTIZE",
+      "assume_channel_last_layout": false,
+      "status": "direct",
+      "is_rewritten": false,
+      "rewrite_events": [],
+      "rewrite_name_chain": [
+        "wa/Transpose_output_0_QuantizeLinear_Output"
+      ]
+    },
+    {
+      "identifier": 25,
+      "onnx_op_type": "DequantizeLinear",
+      "onnx_op_name": "wa/Transpose_output_0_DequantizeLinear",
+      "onnx_output_index": 0,
+      "onnx_output_name": "wa/Transpose_output_0_DequantizeLinear_Output",
+      "resolved_tflite_tensor_name": "wa/Transpose_output_0_DequantizeLinear_Output",
+      "exists_in_final_model": true,
+      "is_graph_output": false,
+      "consumer_count": 1,
+      "producer_operator_index": 6,
+      "producer_op_type": "DEQUANTIZE",
+      "assume_channel_last_layout": false,
+      "status": "direct",
+      "is_rewritten": false,
+      "rewrite_events": [],
+      "rewrite_name_chain": [
+        "wa/Transpose_output_0_DequantizeLinear_Output"
+      ]
+    },
+    {
+      "identifier": 26,
+      "onnx_op_type": "Conv",
+      "onnx_op_name": "wa/tdnn1/conv/Conv",
+      "onnx_output_index": 0,
+      "onnx_output_name": "wa/tdnn1/Relu_output_0",
+      "resolved_tflite_tensor_name": "wa/tdnn1/Relu_output_0",
+      "exists_in_final_model": true,
+      "is_graph_output": false,
+      "consumer_count": 1,
+      "producer_operator_index": 11,
+      "producer_op_type": "RESHAPE",
+      "assume_channel_last_layout": false,
+      "status": "direct",
+      "is_rewritten": false,
+      "rewrite_events": [],
+      "rewrite_name_chain": [
+        "wa/tdnn1/Relu_output_0"
+      ]
+    },
+    {
+      "identifier": 27,
+      "onnx_op_type": "QuantizeLinear",
+      "onnx_op_name": "wa/tdnn1/Relu_output_0_QuantizeLinear",
+      "onnx_output_index": 0,
+      "onnx_output_name": "wa/tdnn1/Relu_output_0_QuantizeLinear_Output",
+      "resolved_tflite_tensor_name": "wa/tdnn1/Relu_output_0_QuantizeLinear_Output",
+      "exists_in_final_model": true,
+      "is_graph_output": false,
+      "consumer_count": 1,
+      "producer_operator_index": 12,
+      "producer_op_type": "QUANTIZE",
+      "assume_channel_last_layout": false,
+      "status": "direct",
+      "is_rewritten": false,
+      "rewrite_events": [],
+      "rewrite_name_chain": [
+        "wa/tdnn1/Relu_output_0_QuantizeLinear_Output"
+      ]
+    },
+    {
+      "identifier": 28,
+      "onnx_op_type": "DequantizeLinear",
+      "onnx_op_name": "wa/tdnn1/Relu_output_0_DequantizeLinear",
+      "onnx_output_index": 0,
+      "onnx_output_name": "wa/tdnn1/Relu_output_0_DequantizeLinear_Output",
+      "resolved_tflite_tensor_name": "wa/tdnn1/Relu_output_0_DequantizeLinear_Output",
+      "exists_in_final_model": true,
+      "is_graph_output": false,
+      "consumer_count": 1,
+      "producer_operator_index": 13,
+      "producer_op_type": "DEQUANTIZE",
+      "assume_channel_last_layout": false,
+      "status": "direct",
+      "is_rewritten": false,
+      "rewrite_events": [],
+      "rewrite_name_chain": [
+        "wa/tdnn1/Relu_output_0_DequantizeLinear_Output"
+      ]
+    },
+    {
+      "identifier": 29,
+      "onnx_op_type": "Conv",
+      "onnx_op_name": "wa/tdnn2/conv/Conv",
+      "onnx_output_index": 0,
+      "onnx_output_name": "wa/tdnn2/Relu_output_0",
+      "resolved_tflite_tensor_name": "wa/tdnn2/Relu_output_0",
+      "exists_in_final_model": true,
+      "is_graph_output": false,
+      "consumer_count": 1,
+      "producer_operator_index": 18,
+      "producer_op_type": "RESHAPE",
+      "assume_channel_last_layout": false,
+      "status": "direct",
+      "is_rewritten": false,
+      "rewrite_events": [],
+      "rewrite_name_chain": [
+        "wa/tdnn2/Relu_output_0"
+      ]
+    },
+    {
+      "identifier": 30,
+      "onnx_op_type": "QuantizeLinear",
+      "onnx_op_name": "wa/tdnn2/Relu_output_0_QuantizeLinear",
+      "onnx_output_index": 0,
+      "onnx_output_name": "wa/tdnn2/Relu_output_0_QuantizeLinear_Output",
+      "resolved_tflite_tensor_name": "wa/tdnn2/Relu_output_0_QuantizeLinear_Output",
+      "exists_in_final_model": true,
+      "is_graph_output": false,
+      "consumer_count": 1,
+      "producer_operator_index": 19,
+      "producer_op_type": "QUANTIZE",
+      "assume_channel_last_layout": false,
+      "status": "direct",
+      "is_rewritten": false,
+      "rewrite_events": [],
+      "rewrite_name_chain": [
+        "wa/tdnn2/Relu_output_0_QuantizeLinear_Output"
+      ]
+    },
+    {
+      "identifier": 31,
+      "onnx_op_type": "DequantizeLinear",
+      "onnx_op_name": "wa/tdnn2/Relu_output_0_DequantizeLinear",
+      "onnx_output_index": 0,
+      "onnx_output_name": "wa/tdnn2/Relu_output_0_DequantizeLinear_Output",
+      "resolved_tflite_tensor_name": "wa/tdnn2/Relu_output_0_DequantizeLinear_Output",
+      "exists_in_final_model": true,
+      "is_graph_output": false,
+      "consumer_count": 1,
+      "producer_operator_index": 20,
+      "producer_op_type": "DEQUANTIZE",
+      "assume_channel_last_layout": false,
+      "status": "direct",
+      "is_rewritten": false,
+      "rewrite_events": [],
+      "rewrite_name_chain": [
+        "wa/tdnn2/Relu_output_0_DequantizeLinear_Output"
+      ]
+    },
+    {
+      "identifier": 32,
+      "onnx_op_type": "Conv",
+      "onnx_op_name": "wa/tdnn3/conv/Conv",
+      "onnx_output_index": 0,
+      "onnx_output_name": "wa/tdnn3/Relu_output_0",
+      "resolved_tflite_tensor_name": "wa/tdnn3/Relu_output_0",
+      "exists_in_final_model": true,
+      "is_graph_output": false,
+      "consumer_count": 1,
+      "producer_operator_index": 25,
+      "producer_op_type": "RESHAPE",
+      "assume_channel_last_layout": false,
+      "status": "direct",
+      "is_rewritten": false,
+      "rewrite_events": [],
+      "rewrite_name_chain": [
+        "wa/tdnn3/Relu_output_0"
+      ]
+    },
+    {
+      "identifier": 33,
+      "onnx_op_type": "QuantizeLinear",
+      "onnx_op_name": "wa/tdnn3/Relu_output_0_QuantizeLinear",
+      "onnx_output_index": 0,
+      "onnx_output_name": "wa/tdnn3/Relu_output_0_QuantizeLinear_Output",
+      "resolved_tflite_tensor_name": "wa/tdnn3/Relu_output_0_QuantizeLinear_Output",
+      "exists_in_final_model": true,
+      "is_graph_output": false,
+      "consumer_count": 1,
+      "producer_operator_index": 26,
+      "producer_op_type": "QUANTIZE",
+      "assume_channel_last_layout": false,
+      "status": "direct",
+      "is_rewritten": false,
+      "rewrite_events": [],
+      "rewrite_name_chain": [
+        "wa/tdnn3/Relu_output_0_QuantizeLinear_Output"
+      ]
+    },
+    {
+      "identifier": 34,
+      "onnx_op_type": "DequantizeLinear",
+      "onnx_op_name": "wa/tdnn3/Relu_output_0_DequantizeLinear",
+      "onnx_output_index": 0,
+      "onnx_output_name": "wa/tdnn3/Relu_output_0_DequantizeLinear_Output",
+      "resolved_tflite_tensor_name": "wa/tdnn3/Relu_output_0_DequantizeLinear_Output",
+      "exists_in_final_model": true,
+      "is_graph_output": false,
+      "consumer_count": 1,
+      "producer_operator_index": 27,
+      "producer_op_type": "DEQUANTIZE",
+      "assume_channel_last_layout": false,
+      "status": "direct",
+      "is_rewritten": false,
+      "rewrite_events": [],
+      "rewrite_name_chain": [
+        "wa/tdnn3/Relu_output_0_DequantizeLinear_Output"
+      ]
+    },
+    {
+      "identifier": 35,
+      "onnx_op_type": "Conv",
+      "onnx_op_name": "wa/tdnn4/conv/Conv",
+      "onnx_output_index": 0,
+      "onnx_output_name": "wa/tdnn4/Relu_output_0",
+      "resolved_tflite_tensor_name": "wa/tdnn4/Relu_output_0",
+      "exists_in_final_model": true,
+      "is_graph_output": false,
+      "consumer_count": 1,
+      "producer_operator_index": 32,
+      "producer_op_type": "RESHAPE",
+      "assume_channel_last_layout": false,
+      "status": "direct",
+      "is_rewritten": false,
+      "rewrite_events": [],
+      "rewrite_name_chain": [
+        "wa/tdnn4/Relu_output_0"
+      ]
+    },
+    {
+      "identifier": 36,
+      "onnx_op_type": "QuantizeLinear",
+      "onnx_op_name": "wa/tdnn4/Relu_output_0_QuantizeLinear",
+      "onnx_output_index": 0,
+      "onnx_output_name": "wa/tdnn4/Relu_output_0_QuantizeLinear_Output",
+      "resolved_tflite_tensor_name": "wa/tdnn4/Relu_output_0_QuantizeLinear_Output",
+      "exists_in_final_model": true,
+      "is_graph_output": false,
+      "consumer_count": 1,
+      "producer_operator_index": 33,
+      "producer_op_type": "QUANTIZE",
+      "assume_channel_last_layout": false,
+      "status": "direct",
+      "is_rewritten": false,
+      "rewrite_events": [],
+      "rewrite_name_chain": [
+        "wa/tdnn4/Relu_output_0_QuantizeLinear_Output"
+      ]
+    },
+    {
+      "identifier": 37,
+      "onnx_op_type": "DequantizeLinear",
+      "onnx_op_name": "wa/tdnn4/Relu_output_0_DequantizeLinear",
+      "onnx_output_index": 0,
+      "onnx_output_name": "wa/tdnn4/Relu_output_0_DequantizeLinear_Output",
+      "resolved_tflite_tensor_name": "wa/tdnn4/Relu_output_0_DequantizeLinear_Output",
+      "exists_in_final_model": true,
+      "is_graph_output": false,
+      "consumer_count": 1,
+      "producer_operator_index": 34,
+      "producer_op_type": "DEQUANTIZE",
+      "assume_channel_last_layout": false,
+      "status": "direct",
+      "is_rewritten": false,
+      "rewrite_events": [],
+      "rewrite_name_chain": [
+        "wa/tdnn4/Relu_output_0_DequantizeLinear_Output"
+      ]
+    },
+    {
+      "identifier": 38,
+      "onnx_op_type": "Conv",
+      "onnx_op_name": "wa/tdnn5/conv/Conv",
+      "onnx_output_index": 0,
+      "onnx_output_name": "wa/tdnn5/Relu_output_0",
+      "resolved_tflite_tensor_name": "wa/tdnn5/Relu_output_0",
+      "exists_in_final_model": true,
+      "is_graph_output": false,
+      "consumer_count": 1,
+      "producer_operator_index": 39,
+      "producer_op_type": "RESHAPE",
+      "assume_channel_last_layout": false,
+      "status": "direct",
+      "is_rewritten": false,
+      "rewrite_events": [],
+      "rewrite_name_chain": [
+        "wa/tdnn5/Relu_output_0"
+      ]
+    },
+    {
+      "identifier": 39,
+      "onnx_op_type": "QuantizeLinear",
+      "onnx_op_name": "wa/tdnn5/Relu_output_0_QuantizeLinear",
+      "onnx_output_index": 0,
+      "onnx_output_name": "wa/tdnn5/Relu_output_0_QuantizeLinear_Output",
+      "resolved_tflite_tensor_name": "wa/tdnn5/Relu_output_0_QuantizeLinear_Output",
+      "exists_in_final_model": true,
+      "is_graph_output": false,
+      "consumer_count": 1,
+      "producer_operator_index": 40,
+      "producer_op_type": "QUANTIZE",
+      "assume_channel_last_layout": false,
+      "status": "direct",
+      "is_rewritten": false,
+      "rewrite_events": [],
+      "rewrite_name_chain": [
+        "wa/tdnn5/Relu_output_0_QuantizeLinear_Output"
+      ]
+    },
+    {
+      "identifier": 40,
+      "onnx_op_type": "DequantizeLinear",
+      "onnx_op_name": "wa/tdnn5/Relu_output_0_DequantizeLinear",
+      "onnx_output_index": 0,
+      "onnx_output_name": "wa/tdnn5/Relu_output_0_DequantizeLinear_Output",
+      "resolved_tflite_tensor_name": "wa/tdnn5/Relu_output_0_DequantizeLinear_Output",
+      "exists_in_final_model": true,
+      "is_graph_output": false,
+      "consumer_count": 4,
+      "producer_operator_index": 41,
+      "producer_op_type": "DEQUANTIZE",
+      "assume_channel_last_layout": false,
+      "status": "direct",
+      "is_rewritten": false,
+      "rewrite_events": [],
+      "rewrite_name_chain": [
+        "wa/tdnn5/Relu_output_0_DequantizeLinear_Output"
+      ]
+    },
+    {
+      "identifier": 41,
+      "onnx_op_type": "ReduceMean",
+      "onnx_op_name": "wa/ReduceMean",
+      "onnx_output_index": 0,
+      "onnx_output_name": "wa/ReduceMean_output_0",
+      "resolved_tflite_tensor_name": "wa/ReduceMean_output_0",
+      "exists_in_final_model": true,
+      "is_graph_output": false,
+      "consumer_count": 1,
+      "producer_operator_index": 42,
+      "producer_op_type": "MEAN",
+      "assume_channel_last_layout": false,
+      "status": "direct",
+      "is_rewritten": false,
+      "rewrite_events": [],
+      "rewrite_name_chain": [
+        "wa/ReduceMean_output_0"
+      ]
+    },
+    {
+      "identifier": 42,
+      "onnx_op_type": "ReduceMean",
+      "onnx_op_name": "wa/ReduceMean_1",
+      "onnx_output_index": 0,
+      "onnx_output_name": "wa/ReduceMean_1_output_0",
+      "resolved_tflite_tensor_name": "wa/ReduceMean_1_output_0",
+      "exists_in_final_model": true,
+      "is_graph_output": false,
+      "consumer_count": 1,
+      "producer_operator_index": 43,
+      "producer_op_type": "MEAN",
+      "assume_channel_last_layout": false,
+      "status": "direct",
+      "is_rewritten": false,
+      "rewrite_events": [],
+      "rewrite_name_chain": [
+        "wa/ReduceMean_1_output_0"
+      ]
+    },
+    {
+      "identifier": 43,
+      "onnx_op_type": "Shape",
+      "onnx_op_name": "wa/Shape",
+      "onnx_output_index": 0,
+      "onnx_output_name": "wa/Shape_output_0",
+      "resolved_tflite_tensor_name": "wa/Shape_output_0",
+      "exists_in_final_model": true,
+      "is_graph_output": false,
+      "consumer_count": 1,
+      "producer_operator_index": 44,
+      "producer_op_type": "SHAPE",
+      "assume_channel_last_layout": false,
+      "status": "direct",
+      "is_rewritten": false,
+      "rewrite_events": [],
+      "rewrite_name_chain": [
+        "wa/Shape_output_0"
+      ]
+    },
+    {
+      "identifier": 44,
+      "onnx_op_type": "QuantizeLinear",
+      "onnx_op_name": "wa/ReduceMean_output_0_QuantizeLinear",
+      "onnx_output_index": 0,
+      "onnx_output_name": "wa/ReduceMean_output_0_QuantizeLinear_Output",
+      "resolved_tflite_tensor_name": "wa/ReduceMean_output_0",
+      "exists_in_final_model": true,
+      "is_graph_output": false,
+      "consumer_count": 1,
+      "producer_operator_index": 42,
+      "producer_op_type": "MEAN",
+      "assume_channel_last_layout": false,
+      "status": "inferred",
+      "is_rewritten": true,
+      "rewrite_events": [
+        {
+          "event_index": null,
+          "kind": "inferred_via_downstream",
+          "from": "wa/ReduceMean_output_0_QuantizeLinear_Output",
+          "to": "wa/ReduceMean_output_0",
+          "via_onnx_output": "wa/ReduceMean_output_0_DequantizeLinear_Output",
+          "hops": 1
+        }
+      ],
+      "rewrite_name_chain": [
+        "wa/ReduceMean_output_0_QuantizeLinear_Output",
+        "wa/ReduceMean_output_0"
+      ],
+      "inferred_from_onnx_output_name": "wa/ReduceMean_output_0_DequantizeLinear_Output",
+      "inferred_hops": 1
+    },
+    {
+      "identifier": 45,
+      "onnx_op_type": "Sub",
+      "onnx_op_name": "wa/Sub",
+      "onnx_output_index": 0,
+      "onnx_output_name": "wa/Sub_output_0",
+      "resolved_tflite_tensor_name": "wa/Sub_output_0",
+      "exists_in_final_model": true,
+      "is_graph_output": false,
+      "consumer_count": 1,
+      "producer_operator_index": 45,
+      "producer_op_type": "SUB",
+      "assume_channel_last_layout": false,
+      "status": "direct",
+      "is_rewritten": false,
+      "rewrite_events": [],
+      "rewrite_name_chain": [
+        "wa/Sub_output_0"
+      ]
+    },
+    {
+      "identifier": 46,
+      "onnx_op_type": "Gather",
+      "onnx_op_name": "wa/Gather",
+      "onnx_output_index": 0,
+      "onnx_output_name": "wa/Gather_output_0",
+      "resolved_tflite_tensor_name": "wa/Gather_output_0",
+      "exists_in_final_model": true,
+      "is_graph_output": false,
+      "consumer_count": 1,
+      "producer_operator_index": 46,
+      "producer_op_type": "GATHER",
+      "assume_channel_last_layout": false,
+      "status": "direct",
+      "is_rewritten": false,
+      "rewrite_events": [],
+      "rewrite_name_chain": [
+        "wa/Gather_output_0"
+      ]
+    },
+    {
+      "identifier": 47,
+      "onnx_op_type": "DequantizeLinear",
+      "onnx_op_name": "wa/ReduceMean_output_0_DequantizeLinear",
+      "onnx_output_index": 0,
+      "onnx_output_name": "wa/ReduceMean_output_0_DequantizeLinear_Output",
+      "resolved_tflite_tensor_name": "wa/ReduceMean_output_0",
+      "exists_in_final_model": true,
+      "is_graph_output": false,
+      "consumer_count": 1,
+      "producer_operator_index": 42,
+      "producer_op_type": "MEAN",
+      "assume_channel_last_layout": false,
+      "status": "rewritten",
+      "is_rewritten": true,
+      "rewrite_events": [
+        {
+          "event_index": 8,
+          "kind": "replace_input",
+          "from": "wa/ReduceMean_output_0_DequantizeLinear_Output",
+          "to": "wa/ReduceMean_output_0"
+        }
+      ],
+      "rewrite_name_chain": [
+        "wa/ReduceMean_output_0_DequantizeLinear_Output",
+        "wa/ReduceMean_output_0"
+      ]
+    },
+    {
+      "identifier": 48,
+      "onnx_op_type": "QuantizeLinear",
+      "onnx_op_name": "wa/Sub_output_0_QuantizeLinear",
+      "onnx_output_index": 0,
+      "onnx_output_name": "wa/Sub_output_0_QuantizeLinear_Output",
+      "resolved_tflite_tensor_name": "wa/Sub_output_0_QuantizeLinear_Output",
+      "exists_in_final_model": true,
+      "is_graph_output": false,
+      "consumer_count": 1,
+      "producer_operator_index": 47,
+      "producer_op_type": "QUANTIZE",
+      "assume_channel_last_layout": false,
+      "status": "direct",
+      "is_rewritten": false,
+      "rewrite_events": [],
+      "rewrite_name_chain": [
+        "wa/Sub_output_0_QuantizeLinear_Output"
+      ]
+    },
+    {
+      "identifier": 49,
+      "onnx_op_type": "ReduceProd",
+      "onnx_op_name": "wa/ReduceProd",
+      "onnx_output_index": 0,
+      "onnx_output_name": "wa/ReduceProd_output_0",
+      "resolved_tflite_tensor_name": "wa/ReduceProd_output_0",
+      "exists_in_final_model": true,
+      "is_graph_output": false,
+      "consumer_count": 1,
+      "producer_operator_index": 48,
+      "producer_op_type": "REDUCE_PROD",
+      "assume_channel_last_layout": false,
+      "status": "direct",
+      "is_rewritten": false,
+      "rewrite_events": [],
+      "rewrite_name_chain": [
+        "wa/ReduceProd_output_0"
+      ]
+    },
+    {
+      "identifier": 50,
+      "onnx_op_type": "DequantizeLinear",
+      "onnx_op_name": "wa/Sub_output_0_DequantizeLinear",
+      "onnx_output_index": 0,
+      "onnx_output_name": "wa/Sub_output_0_DequantizeLinear_Output",
+      "resolved_tflite_tensor_name": "wa/Sub_output_0_DequantizeLinear_Output",
+      "exists_in_final_model": true,
+      "is_graph_output": false,
+      "consumer_count": 2,
+      "producer_operator_index": 49,
+      "producer_op_type": "DEQUANTIZE",
+      "assume_channel_last_layout": false,
+      "status": "direct",
+      "is_rewritten": false,
+      "rewrite_events": [],
+      "rewrite_name_chain": [
+        "wa/Sub_output_0_DequantizeLinear_Output"
+      ]
+    },
+    {
+      "identifier": 51,
+      "onnx_op_type": "Cast",
+      "onnx_op_name": "wa/Cast",
+      "onnx_output_index": 0,
+      "onnx_output_name": "wa/Cast_output_0",
+      "resolved_tflite_tensor_name": "wa/Cast_output_0",
+      "exists_in_final_model": true,
+      "is_graph_output": false,
+      "consumer_count": 1,
+      "producer_operator_index": 50,
+      "producer_op_type": "CAST",
+      "assume_channel_last_layout": false,
+      "status": "direct",
+      "is_rewritten": false,
+      "rewrite_events": [],
+      "rewrite_name_chain": [
+        "wa/Cast_output_0"
+      ]
+    },
+    {
+      "identifier": 52,
+      "onnx_op_type": "Mul",
+      "onnx_op_name": "wa/Mul",
+      "onnx_output_index": 0,
+      "onnx_output_name": "wa/Mul_output_0",
+      "resolved_tflite_tensor_name": "wa/Mul_output_0",
+      "exists_in_final_model": true,
+      "is_graph_output": false,
+      "consumer_count": 1,
+      "producer_operator_index": 51,
+      "producer_op_type": "MUL",
+      "assume_channel_last_layout": false,
+      "status": "direct",
+      "is_rewritten": false,
+      "rewrite_events": [],
+      "rewrite_name_chain": [
+        "wa/Mul_output_0"
+      ]
+    },
+    {
+      "identifier": 53,
+      "onnx_op_type": "QuantizeLinear",
+      "onnx_op_name": "wa/Cast_output_0_QuantizeLinear",
+      "onnx_output_index": 0,
+      "onnx_output_name": "wa/Cast_output_0_QuantizeLinear_Output",
+      "resolved_tflite_tensor_name": "wa/Cast_output_0_QuantizeLinear_Output",
+      "exists_in_final_model": true,
+      "is_graph_output": false,
+      "consumer_count": 1,
+      "producer_operator_index": 52,
+      "producer_op_type": "QUANTIZE",
+      "assume_channel_last_layout": false,
+      "status": "direct",
+      "is_rewritten": false,
+      "rewrite_events": [],
+      "rewrite_name_chain": [
+        "wa/Cast_output_0_QuantizeLinear_Output"
+      ]
+    },
+    {
+      "identifier": 54,
+      "onnx_op_type": "QuantizeLinear",
+      "onnx_op_name": "wa/Mul_output_0_QuantizeLinear",
+      "onnx_output_index": 0,
+      "onnx_output_name": "wa/Mul_output_0_QuantizeLinear_Output",
+      "resolved_tflite_tensor_name": "wa/Mul_output_0_QuantizeLinear_Output",
+      "exists_in_final_model": true,
+      "is_graph_output": false,
+      "consumer_count": 1,
+      "producer_operator_index": 53,
+      "producer_op_type": "QUANTIZE",
+      "assume_channel_last_layout": false,
+      "status": "direct",
+      "is_rewritten": false,
+      "rewrite_events": [],
+      "rewrite_name_chain": [
+        "wa/Mul_output_0_QuantizeLinear_Output"
+      ]
+    },
+    {
+      "identifier": 55,
+      "onnx_op_type": "DequantizeLinear",
+      "onnx_op_name": "wa/Cast_output_0_DequantizeLinear",
+      "onnx_output_index": 0,
+      "onnx_output_name": "wa/Cast_output_0_DequantizeLinear_Output",
+      "resolved_tflite_tensor_name": "wa/Cast_output_0_DequantizeLinear_Output",
+      "exists_in_final_model": true,
+      "is_graph_output": false,
+      "consumer_count": 2,
+      "producer_operator_index": 54,
+      "producer_op_type": "DEQUANTIZE",
+      "assume_channel_last_layout": false,
+      "status": "direct",
+      "is_rewritten": false,
+      "rewrite_events": [],
+      "rewrite_name_chain": [
+        "wa/Cast_output_0_DequantizeLinear_Output"
+      ]
+    },
+    {
+      "identifier": 56,
+      "onnx_op_type": "DequantizeLinear",
+      "onnx_op_name": "wa/Mul_output_0_DequantizeLinear",
+      "onnx_output_index": 0,
+      "onnx_output_name": "wa/Mul_output_0_DequantizeLinear_Output",
+      "resolved_tflite_tensor_name": "wa/Mul_output_0_DequantizeLinear_Output",
+      "exists_in_final_model": true,
+      "is_graph_output": false,
+      "consumer_count": 1,
+      "producer_operator_index": 55,
+      "producer_op_type": "DEQUANTIZE",
+      "assume_channel_last_layout": false,
+      "status": "direct",
+      "is_rewritten": false,
+      "rewrite_events": [],
+      "rewrite_name_chain": [
+        "wa/Mul_output_0_DequantizeLinear_Output"
+      ]
+    },
+    {
+      "identifier": 57,
+      "onnx_op_type": "Sub",
+      "onnx_op_name": "wa/Sub_1",
+      "onnx_output_index": 0,
+      "onnx_output_name": "wa/Sub_1_output_0",
+      "resolved_tflite_tensor_name": "wa/Sub_1_output_0",
+      "exists_in_final_model": true,
+      "is_graph_output": false,
+      "consumer_count": 1,
+      "producer_operator_index": 56,
+      "producer_op_type": "SUB",
+      "assume_channel_last_layout": false,
+      "status": "direct",
+      "is_rewritten": false,
+      "rewrite_events": [],
+      "rewrite_name_chain": [
+        "wa/Sub_1_output_0"
+      ]
+    },
+    {
+      "identifier": 58,
+      "onnx_op_type": "ReduceMean",
+      "onnx_op_name": "wa/ReduceMean_2",
+      "onnx_output_index": 0,
+      "onnx_output_name": "wa/ReduceMean_2_output_0",
+      "resolved_tflite_tensor_name": "wa/ReduceMean_2_output_0",
+      "exists_in_final_model": true,
+      "is_graph_output": false,
+      "consumer_count": 1,
+      "producer_operator_index": 57,
+      "producer_op_type": "MEAN",
+      "assume_channel_last_layout": false,
+      "status": "direct",
+      "is_rewritten": false,
+      "rewrite_events": [],
+      "rewrite_name_chain": [
+        "wa/ReduceMean_2_output_0"
+      ]
+    },
+    {
+      "identifier": 59,
+      "onnx_op_type": "QuantizeLinear",
+      "onnx_op_name": "wa/ReduceMean_2_output_0_QuantizeLinear",
+      "onnx_output_index": 0,
+      "onnx_output_name": "wa/ReduceMean_2_output_0_QuantizeLinear_Output",
+      "resolved_tflite_tensor_name": "wa/ReduceMean_2_output_0_QuantizeLinear_Output",
+      "exists_in_final_model": true,
+      "is_graph_output": false,
+      "consumer_count": 1,
+      "producer_operator_index": 58,
+      "producer_op_type": "QUANTIZE",
+      "assume_channel_last_layout": false,
+      "status": "direct",
+      "is_rewritten": false,
+      "rewrite_events": [],
+      "rewrite_name_chain": [
+        "wa/ReduceMean_2_output_0_QuantizeLinear_Output"
+      ]
+    },
+    {
+      "identifier": 60,
+      "onnx_op_type": "DequantizeLinear",
+      "onnx_op_name": "wa/ReduceMean_2_output_0_DequantizeLinear",
+      "onnx_output_index": 0,
+      "onnx_output_name": "wa/ReduceMean_2_output_0_DequantizeLinear_Output",
+      "resolved_tflite_tensor_name": "wa/ReduceMean_2_output_0_DequantizeLinear_Output",
+      "exists_in_final_model": true,
+      "is_graph_output": false,
+      "consumer_count": 1,
+      "producer_operator_index": 59,
+      "producer_op_type": "DEQUANTIZE",
+      "assume_channel_last_layout": false,
+      "status": "direct",
+      "is_rewritten": false,
+      "rewrite_events": [],
+      "rewrite_name_chain": [
+        "wa/ReduceMean_2_output_0_DequantizeLinear_Output"
+      ]
+    },
+    {
+      "identifier": 61,
+      "onnx_op_type": "Mul",
+      "onnx_op_name": "wa/Mul_1",
+      "onnx_output_index": 0,
+      "onnx_output_name": "wa/Mul_1_output_0",
+      "resolved_tflite_tensor_name": "wa/Mul_1_output_0",
+      "exists_in_final_model": true,
+      "is_graph_output": false,
+      "consumer_count": 1,
+      "producer_operator_index": 60,
+      "producer_op_type": "MUL",
+      "assume_channel_last_layout": false,
+      "status": "direct",
+      "is_rewritten": false,
+      "rewrite_events": [],
+      "rewrite_name_chain": [
+        "wa/Mul_1_output_0"
+      ]
+    },
+    {
+      "identifier": 62,
+      "onnx_op_type": "QuantizeLinear",
+      "onnx_op_name": "wa/Mul_1_output_0_QuantizeLinear",
+      "onnx_output_index": 0,
+      "onnx_output_name": "wa/Mul_1_output_0_QuantizeLinear_Output",
+      "resolved_tflite_tensor_name": "wa/Mul_1_output_0_QuantizeLinear_Output",
+      "exists_in_final_model": true,
+      "is_graph_output": false,
+      "consumer_count": 1,
+      "producer_operator_index": 61,
+      "producer_op_type": "QUANTIZE",
+      "assume_channel_last_layout": false,
+      "status": "direct",
+      "is_rewritten": false,
+      "rewrite_events": [],
+      "rewrite_name_chain": [
+        "wa/Mul_1_output_0_QuantizeLinear_Output"
+      ]
+    },
+    {
+      "identifier": 63,
+      "onnx_op_type": "DequantizeLinear",
+      "onnx_op_name": "wa/Mul_1_output_0_DequantizeLinear",
+      "onnx_output_index": 0,
+      "onnx_output_name": "wa/Mul_1_output_0_DequantizeLinear_Output",
+      "resolved_tflite_tensor_name": "wa/Mul_1_output_0_DequantizeLinear_Output",
+      "exists_in_final_model": true,
+      "is_graph_output": false,
+      "consumer_count": 1,
+      "producer_operator_index": 62,
+      "producer_op_type": "DEQUANTIZE",
+      "assume_channel_last_layout": false,
+      "status": "direct",
+      "is_rewritten": false,
+      "rewrite_events": [],
+      "rewrite_name_chain": [
+        "wa/Mul_1_output_0_DequantizeLinear_Output"
+      ]
+    },
+    {
+      "identifier": 64,
+      "onnx_op_type": "Div",
+      "onnx_op_name": "wa/Div",
+      "onnx_output_index": 0,
+      "onnx_output_name": "wa/Div_output_0",
+      "resolved_tflite_tensor_name": "wa/Div_output_0",
+      "exists_in_final_model": true,
+      "is_graph_output": false,
+      "consumer_count": 1,
+      "producer_operator_index": 63,
+      "producer_op_type": "DIV",
+      "assume_channel_last_layout": false,
+      "status": "direct",
+      "is_rewritten": false,
+      "rewrite_events": [],
+      "rewrite_name_chain": [
+        "wa/Div_output_0"
+      ]
+    },
+    {
+      "identifier": 65,
+      "onnx_op_type": "Sqrt",
+      "onnx_op_name": "wa/Sqrt",
+      "onnx_output_index": 0,
+      "onnx_output_name": "wa/Sqrt_output_0",
+      "resolved_tflite_tensor_name": "wa/Sqrt_output_0",
+      "exists_in_final_model": true,
+      "is_graph_output": false,
+      "consumer_count": 1,
+      "producer_operator_index": 64,
+      "producer_op_type": "SQRT",
+      "assume_channel_last_layout": false,
+      "status": "direct",
+      "is_rewritten": false,
+      "rewrite_events": [],
+      "rewrite_name_chain": [
+        "wa/Sqrt_output_0"
+      ]
+    },
+    {
+      "identifier": 66,
+      "onnx_op_type": "QuantizeLinear",
+      "onnx_op_name": "wa/Sqrt_output_0_QuantizeLinear",
+      "onnx_output_index": 0,
+      "onnx_output_name": "wa/Sqrt_output_0_QuantizeLinear_Output",
+      "resolved_tflite_tensor_name": "wa/Sqrt_output_0_QuantizeLinear_Output",
+      "exists_in_final_model": true,
+      "is_graph_output": false,
+      "consumer_count": 1,
+      "producer_operator_index": 65,
+      "producer_op_type": "QUANTIZE",
+      "assume_channel_last_layout": false,
+      "status": "direct",
+      "is_rewritten": false,
+      "rewrite_events": [],
+      "rewrite_name_chain": [
+        "wa/Sqrt_output_0_QuantizeLinear_Output"
+      ]
+    },
+    {
+      "identifier": 67,
+      "onnx_op_type": "DequantizeLinear",
+      "onnx_op_name": "wa/Sqrt_output_0_DequantizeLinear",
+      "onnx_output_index": 0,
+      "onnx_output_name": "wa/Sqrt_output_0_DequantizeLinear_Output",
+      "resolved_tflite_tensor_name": "wa/Sqrt_output_0_DequantizeLinear_Output",
+      "exists_in_final_model": true,
+      "is_graph_output": false,
+      "consumer_count": 1,
+      "producer_operator_index": 66,
+      "producer_op_type": "DEQUANTIZE",
+      "assume_channel_last_layout": false,
+      "status": "direct",
+      "is_rewritten": false,
+      "rewrite_events": [],
+      "rewrite_name_chain": [
+        "wa/Sqrt_output_0_DequantizeLinear_Output"
+      ]
+    },
+    {
+      "identifier": 68,
+      "onnx_op_type": "Concat",
+      "onnx_op_name": "wa/Concat",
+      "onnx_output_index": 0,
+      "onnx_output_name": "wa/Concat_output_0",
+      "resolved_tflite_tensor_name": "wa/Concat_output_0",
+      "exists_in_final_model": true,
+      "is_graph_output": false,
+      "consumer_count": 1,
+      "producer_operator_index": 67,
+      "producer_op_type": "CONCATENATION",
+      "assume_channel_last_layout": false,
+      "status": "direct",
+      "is_rewritten": false,
+      "rewrite_events": [],
+      "rewrite_name_chain": [
+        "wa/Concat_output_0"
+      ]
+    },
+    {
+      "identifier": 69,
+      "onnx_op_type": "QuantizeLinear",
+      "onnx_op_name": "wa/Concat_output_0_QuantizeLinear",
+      "onnx_output_index": 0,
+      "onnx_output_name": "wa/Concat_output_0_QuantizeLinear_Output",
+      "resolved_tflite_tensor_name": "wa/Concat_output_0_QuantizeLinear_Output",
+      "exists_in_final_model": true,
+      "is_graph_output": false,
+      "consumer_count": 1,
+      "producer_operator_index": 68,
+      "producer_op_type": "QUANTIZE",
+      "assume_channel_last_layout": false,
+      "status": "direct",
+      "is_rewritten": false,
+      "rewrite_events": [],
+      "rewrite_name_chain": [
+        "wa/Concat_output_0_QuantizeLinear_Output"
+      ]
+    },
+    {
+      "identifier": 70,
+      "onnx_op_type": "DequantizeLinear",
+      "onnx_op_name": "wa/Concat_output_0_DequantizeLinear",
+      "onnx_output_index": 0,
+      "onnx_output_name": "wa/Concat_output_0_DequantizeLinear_Output",
+      "resolved_tflite_tensor_name": "wa/Concat_output_0_DequantizeLinear_Output",
+      "exists_in_final_model": true,
+      "is_graph_output": false,
+      "consumer_count": 1,
+      "producer_operator_index": 69,
+      "producer_op_type": "DEQUANTIZE",
+      "assume_channel_last_layout": false,
+      "status": "direct",
+      "is_rewritten": false,
+      "rewrite_events": [],
+      "rewrite_name_chain": [
+        "wa/Concat_output_0_DequantizeLinear_Output"
+      ]
+    },
+    {
+      "identifier": 71,
+      "onnx_op_type": "Gemm",
+      "onnx_op_name": "wa/fc1/Gemm",
+      "onnx_output_index": 0,
+      "onnx_output_name": "wa/fc1/Gemm_output_0",
+      "resolved_tflite_tensor_name": "wa/fc1/Gemm_output_0",
+      "exists_in_final_model": true,
+      "is_graph_output": false,
+      "consumer_count": 1,
+      "producer_operator_index": 71,
+      "producer_op_type": "ADD",
+      "assume_channel_last_layout": false,
+      "status": "direct",
+      "is_rewritten": false,
+      "rewrite_events": [],
+      "rewrite_name_chain": [
+        "wa/fc1/Gemm_output_0"
+      ]
+    },
+    {
+      "identifier": 72,
+      "onnx_op_type": "QuantizeLinear",
+      "onnx_op_name": "wa/fc1/Gemm_output_0_QuantizeLinear",
+      "onnx_output_index": 0,
+      "onnx_output_name": "wa/fc1/Gemm_output_0_QuantizeLinear_Output",
+      "resolved_tflite_tensor_name": "wa/fc1/Gemm_output_0_QuantizeLinear_Output",
+      "exists_in_final_model": true,
+      "is_graph_output": false,
+      "consumer_count": 1,
+      "producer_operator_index": 72,
+      "producer_op_type": "QUANTIZE",
+      "assume_channel_last_layout": false,
+      "status": "direct",
+      "is_rewritten": false,
+      "rewrite_events": [],
+      "rewrite_name_chain": [
+        "wa/fc1/Gemm_output_0_QuantizeLinear_Output"
+      ]
+    },
+    {
+      "identifier": 73,
+      "onnx_op_type": "DequantizeLinear",
+      "onnx_op_name": "wa/fc1/Gemm_output_0_DequantizeLinear",
+      "onnx_output_index": 0,
+      "onnx_output_name": "wa/fc1/Gemm_output_0_DequantizeLinear_Output",
+      "resolved_tflite_tensor_name": "wa/fc1/Gemm_output_0_DequantizeLinear_Output",
+      "exists_in_final_model": true,
+      "is_graph_output": false,
+      "consumer_count": 1,
+      "producer_operator_index": 73,
+      "producer_op_type": "DEQUANTIZE",
+      "assume_channel_last_layout": false,
+      "status": "direct",
+      "is_rewritten": false,
+      "rewrite_events": [],
+      "rewrite_name_chain": [
+        "wa/fc1/Gemm_output_0_DequantizeLinear_Output"
+      ]
+    },
+    {
+      "identifier": 74,
+      "onnx_op_type": "BatchNormalization",
+      "onnx_op_name": "wa/bn6/BatchNormalization",
+      "onnx_output_index": 0,
+      "onnx_output_name": "wa/Relu_output_0",
+      "resolved_tflite_tensor_name": "wa/Relu_output_0",
+      "exists_in_final_model": true,
+      "is_graph_output": false,
+      "consumer_count": 1,
+      "producer_operator_index": 74,
+      "producer_op_type": "CUSTOM",
+      "assume_channel_last_layout": false,
+      "status": "direct",
+      "is_rewritten": false,
+      "rewrite_events": [],
+      "rewrite_name_chain": [
+        "wa/Relu_output_0"
+      ]
+    },
+    {
+      "identifier": 75,
+      "onnx_op_type": "QuantizeLinear",
+      "onnx_op_name": "wa/Relu_output_0_QuantizeLinear",
+      "onnx_output_index": 0,
+      "onnx_output_name": "wa/Relu_output_0_QuantizeLinear_Output",
+      "resolved_tflite_tensor_name": "wa/Relu_output_0_QuantizeLinear_Output",
+      "exists_in_final_model": true,
+      "is_graph_output": false,
+      "consumer_count": 1,
+      "producer_operator_index": 75,
+      "producer_op_type": "QUANTIZE",
+      "assume_channel_last_layout": false,
+      "status": "direct",
+      "is_rewritten": false,
+      "rewrite_events": [],
+      "rewrite_name_chain": [
+        "wa/Relu_output_0_QuantizeLinear_Output"
+      ]
+    },
+    {
+      "identifier": 76,
+      "onnx_op_type": "DequantizeLinear",
+      "onnx_op_name": "wa/Relu_output_0_DequantizeLinear",
+      "onnx_output_index": 0,
+      "onnx_output_name": "wa/Relu_output_0_DequantizeLinear_Output",
+      "resolved_tflite_tensor_name": "wa/Relu_output_0_DequantizeLinear_Output",
+      "exists_in_final_model": true,
+      "is_graph_output": false,
+      "consumer_count": 1,
+      "producer_operator_index": 76,
+      "producer_op_type": "DEQUANTIZE",
+      "assume_channel_last_layout": false,
+      "status": "direct",
+      "is_rewritten": false,
+      "rewrite_events": [],
+      "rewrite_name_chain": [
+        "wa/Relu_output_0_DequantizeLinear_Output"
+      ]
+    },
+    {
+      "identifier": 77,
+      "onnx_op_type": "Gemm",
+      "onnx_op_name": "wa/fc2/Gemm",
+      "onnx_output_index": 0,
+      "onnx_output_name": "wa/fc2/Gemm_output_0",
+      "resolved_tflite_tensor_name": "wa/fc2/Gemm_output_0",
+      "exists_in_final_model": true,
+      "is_graph_output": false,
+      "consumer_count": 1,
+      "producer_operator_index": 78,
+      "producer_op_type": "ADD",
+      "assume_channel_last_layout": false,
+      "status": "direct",
+      "is_rewritten": false,
+      "rewrite_events": [],
+      "rewrite_name_chain": [
+        "wa/fc2/Gemm_output_0"
+      ]
+    },
+    {
+      "identifier": 78,
+      "onnx_op_type": "QuantizeLinear",
+      "onnx_op_name": "wa/fc2/Gemm_output_0_QuantizeLinear",
+      "onnx_output_index": 0,
+      "onnx_output_name": "wa/fc2/Gemm_output_0_QuantizeLinear_Output",
+      "resolved_tflite_tensor_name": "wa/fc2/Gemm_output_0_QuantizeLinear_Output",
+      "exists_in_final_model": true,
+      "is_graph_output": false,
+      "consumer_count": 1,
+      "producer_operator_index": 79,
+      "producer_op_type": "QUANTIZE",
+      "assume_channel_last_layout": false,
+      "status": "direct",
+      "is_rewritten": false,
+      "rewrite_events": [],
+      "rewrite_name_chain": [
+        "wa/fc2/Gemm_output_0_QuantizeLinear_Output"
+      ]
+    },
+    {
+      "identifier": 79,
+      "onnx_op_type": "DequantizeLinear",
+      "onnx_op_name": "wa/fc2/Gemm_output_0_DequantizeLinear",
+      "onnx_output_index": 0,
+      "onnx_output_name": "wa/fc2/Gemm_output_0_DequantizeLinear_Output",
+      "resolved_tflite_tensor_name": "wa/fc2/Gemm_output_0_DequantizeLinear_Output",
+      "exists_in_final_model": true,
+      "is_graph_output": false,
+      "consumer_count": 1,
+      "producer_operator_index": 80,
+      "producer_op_type": "DEQUANTIZE",
+      "assume_channel_last_layout": false,
+      "status": "direct",
+      "is_rewritten": false,
+      "rewrite_events": [],
+      "rewrite_name_chain": [
+        "wa/fc2/Gemm_output_0_DequantizeLinear_Output"
+      ]
+    },
+    {
+      "identifier": 80,
+      "onnx_op_type": "BatchNormalization",
+      "onnx_op_name": "wa/bn7/BatchNormalization",
+      "onnx_output_index": 0,
+      "onnx_output_name": "wa/Relu_1_output_0",
+      "resolved_tflite_tensor_name": "wa/Relu_1_output_0",
+      "exists_in_final_model": true,
+      "is_graph_output": false,
+      "consumer_count": 1,
+      "producer_operator_index": 81,
+      "producer_op_type": "CUSTOM",
+      "assume_channel_last_layout": false,
+      "status": "direct",
+      "is_rewritten": false,
+      "rewrite_events": [],
+      "rewrite_name_chain": [
+        "wa/Relu_1_output_0"
+      ]
+    },
+    {
+      "identifier": 81,
+      "onnx_op_type": "QuantizeLinear",
+      "onnx_op_name": "wa/Relu_1_output_0_QuantizeLinear",
+      "onnx_output_index": 0,
+      "onnx_output_name": "wa/Relu_1_output_0_QuantizeLinear_Output",
+      "resolved_tflite_tensor_name": "wa/Relu_1_output_0_QuantizeLinear_Output",
+      "exists_in_final_model": true,
+      "is_graph_output": false,
+      "consumer_count": 1,
+      "producer_operator_index": 82,
+      "producer_op_type": "QUANTIZE",
+      "assume_channel_last_layout": false,
+      "status": "direct",
+      "is_rewritten": false,
+      "rewrite_events": [],
+      "rewrite_name_chain": [
+        "wa/Relu_1_output_0_QuantizeLinear_Output"
+      ]
+    },
+    {
+      "identifier": 82,
+      "onnx_op_type": "DequantizeLinear",
+      "onnx_op_name": "wa/Relu_1_output_0_DequantizeLinear",
+      "onnx_output_index": 0,
+      "onnx_output_name": "wa/Relu_1_output_0_DequantizeLinear_Output",
+      "resolved_tflite_tensor_name": "wa/Relu_1_output_0_DequantizeLinear_Output",
+      "exists_in_final_model": true,
+      "is_graph_output": false,
+      "consumer_count": 1,
+      "producer_operator_index": 83,
+      "producer_op_type": "DEQUANTIZE",
+      "assume_channel_last_layout": false,
+      "status": "direct",
+      "is_rewritten": false,
+      "rewrite_events": [],
+      "rewrite_name_chain": [
+        "wa/Relu_1_output_0_DequantizeLinear_Output"
+      ]
+    },
+    {
+      "identifier": 83,
+      "onnx_op_type": "Gemm",
+      "onnx_op_name": "wa/output/Gemm",
+      "onnx_output_index": 0,
+      "onnx_output_name": "output_QuantizeLinear_Input",
+      "resolved_tflite_tensor_name": "output",
+      "exists_in_final_model": true,
+      "is_graph_output": true,
+      "consumer_count": 0,
+      "producer_operator_index": 85,
+      "producer_op_type": "ADD",
+      "assume_channel_last_layout": false,
+      "status": "rewritten",
+      "is_rewritten": true,
+      "rewrite_events": [
+        {
+          "event_index": 11,
+          "kind": "rename_tensor",
+          "from": "output_QuantizeLinear_Input",
+          "to": "output"
+        }
+      ],
+      "rewrite_name_chain": [
+        "output_QuantizeLinear_Input",
+        "output"
+      ]
+    },
+    {
+      "identifier": 84,
+      "onnx_op_type": "QuantizeLinear",
+      "onnx_op_name": "output_QuantizeLinear",
+      "onnx_output_index": 0,
+      "onnx_output_name": "output_QuantizeLinear_Output",
+      "resolved_tflite_tensor_name": "output",
+      "exists_in_final_model": true,
+      "is_graph_output": true,
+      "consumer_count": 0,
+      "producer_operator_index": 85,
+      "producer_op_type": "ADD",
+      "assume_channel_last_layout": false,
+      "status": "inferred",
+      "is_rewritten": true,
+      "rewrite_events": [
+        {
+          "event_index": null,
+          "kind": "inferred_via_downstream",
+          "from": "output_QuantizeLinear_Output",
+          "to": "output",
+          "via_onnx_output": "output",
+          "hops": 1
+        }
+      ],
+      "rewrite_name_chain": [
+        "output_QuantizeLinear_Output",
+        "output"
+      ],
+      "inferred_from_onnx_output_name": "output",
+      "inferred_hops": 1
+    },
+    {
+      "identifier": 85,
+      "onnx_op_type": "DequantizeLinear",
+      "onnx_op_name": "output_DequantizeLinear",
+      "onnx_output_index": 0,
+      "onnx_output_name": "output",
+      "resolved_tflite_tensor_name": "output",
+      "exists_in_final_model": true,
+      "is_graph_output": true,
+      "consumer_count": 0,
+      "producer_operator_index": 85,
+      "producer_op_type": "ADD",
+      "assume_channel_last_layout": false,
+      "status": "direct",
+      "is_rewritten": false,
+      "rewrite_events": [],
+      "rewrite_name_chain": [
+        "output"
+      ]
+    }
+  ]
+}
